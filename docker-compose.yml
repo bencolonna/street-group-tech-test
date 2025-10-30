@@ -1,0 +1,20 @@
+services:
+  street-group-tech-task-cli:
+    container_name: street-group-tech-task-cli
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: ./docker/local/php-cli/Dockerfile
+    volumes:
+      - ./:/home/application/street-group-tech-task:delegated
+    networks:
+      - street-group-tech-task-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    tty: true
+    stdin_open: true
+
+networks:
+  street-group-tech-task-network:
+    name: street-group-tech-task-network
+    driver: bridge

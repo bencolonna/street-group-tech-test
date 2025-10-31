@@ -10,7 +10,7 @@ class FormatNamesService
     public const MULTIPLE_NAME_SEPERATORS = [' and ', ' & '];
     protected array $result = [];
 
-    public function formatNames(array $input): string
+    public function formatNames(array $input, int $jsonFlags = 0): string
     {
         if (empty($input)) {
             throw new Exception('No input data to process');
@@ -31,7 +31,7 @@ class FormatNamesService
             }
         }
 
-        return json_encode($this->result);
+        return json_encode($this->result, $jsonFlags);
     }
 
     public function getResult(): array

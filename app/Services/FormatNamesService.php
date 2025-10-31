@@ -34,11 +34,6 @@ class FormatNamesService
         return json_encode($this->result, $jsonFlags);
     }
 
-    public function getResult(): array
-    {
-        return $this->result;
-    }
-
     protected function hasMultipleNames(string $name): bool
     {
         //Check for any of the multiple name seperators
